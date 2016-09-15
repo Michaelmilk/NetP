@@ -1,0 +1,753 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{3e215456-c0e6-47f0-8ddb-0be0c207be9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="client">
+      <UniqueIdentifier>{d1d5a3f6-bf90-4a1b-add2-c4dca54d66d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{1a63b5f5-b448-4988-bee5-80f41224b64f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto">
+      <UniqueIdentifier>{c4ef8d94-e428-4381-9b29-0470032e9625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="server">
+      <UniqueIdentifier>{80106dc2-885c-4f36-a651-354d90062962}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test">
+      <UniqueIdentifier>{9d697eab-ec5e-47d3-b732-3b81a4bbeeb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\mysqlConnectPool">
+      <UniqueIdentifier>{06e64fc8-c01a-4f48-8d0a-b7b7a29f187f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\redisConnectPool">
+      <UniqueIdentifier>{e2d582e2-fbcf-453d-9591-1231ece5eab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base\mysqlConnectPool\sql">
+      <UniqueIdentifier>{5041ca80-2e39-453f-901b-a7cfff293379}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\hiredis">
+      <UniqueIdentifier>{48e74269-aa9e-411e-94c3-a0f909ab2e43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\tinyxml">
+      <UniqueIdentifier>{7016c636-c81d-4152-b8e3-4383318b0a1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\hiredis\adapters">
+      <UniqueIdentifier>{c5e732b9-82b0-4050-be4b-56368b6d8167}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\hiredis\examples">
+      <UniqueIdentifier>{1d549542-cb2f-4ae0-83ad-396df14491c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\tinyxml\docs">
+      <UniqueIdentifier>{640326df-3c4c-4d8f-b189-d0021969e6e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\protobuf">
+      <UniqueIdentifier>{71db2eac-574b-4ddc-9de6-7837dd97cd29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test\configure">
+      <UniqueIdentifier>{b66f6b86-5e4b-470c-b4ee-01bd8a17c584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="test\csv">
+      <UniqueIdentifier>{95cb91a4-bec8-4618-8746-aaf1c79335ad}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base\CmdDispatcher.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\mq.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MyConstHash.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MyCsvDataDefine.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MyCsvParse.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MyHashFunction.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MyLock.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MyQueue.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MySingleton.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MySocket.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MySockTask.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MySockTaskManager.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MySockTaskPool.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MyTask.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MyThread.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\MyTime.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\mysqlConnectPool\DBDefine.h">
+      <Filter>base\mysqlConnectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="base\mysqlConnectPool\DBPool.h">
+      <Filter>base\mysqlConnectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="base\mysqlConnectPool\MySingleton.h">
+      <Filter>base\mysqlConnectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="base\redisConnectPool\redisDataType.h">
+      <Filter>base\redisConnectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="base\redisConnectPool\redisOpt.h">
+      <Filter>base\redisConnectPool</Filter>
+    </ClInclude>
+    <ClInclude Include="client\MyClient.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\MyClientTask.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\MyClientTaskManager.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\MySockClientTask.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\MySockClientTaskPool.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="client\MyTcpClient.h">
+      <Filter>client</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\async.h">
+      <Filter>lib\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\dict.h">
+      <Filter>lib\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\fmacros.h">
+      <Filter>lib\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\hiredis.h">
+      <Filter>lib\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\net.h">
+      <Filter>lib\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\read.h">
+      <Filter>lib\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\sds.h">
+      <Filter>lib\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\win32.h">
+      <Filter>lib\hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\adapters\ae.h">
+      <Filter>lib\hiredis\adapters</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\adapters\glib.h">
+      <Filter>lib\hiredis\adapters</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\adapters\ivykis.h">
+      <Filter>lib\hiredis\adapters</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\adapters\libev.h">
+      <Filter>lib\hiredis\adapters</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\adapters\libevent.h">
+      <Filter>lib\hiredis\adapters</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\adapters\libuv.h">
+      <Filter>lib\hiredis\adapters</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\adapters\macosx.h">
+      <Filter>lib\hiredis\adapters</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\adapters\qt.h">
+      <Filter>lib\hiredis\adapters</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\hiredis\examples\example-qt.h">
+      <Filter>lib\hiredis\examples</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\tinyxml\tinystr.h">
+      <Filter>lib\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\tinyxml\tinyxml.h">
+      <Filter>lib\tinyxml</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\BaseCmd.h">
+      <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\CmdNumber.h">
+      <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\LoadBalanceCmd.h">
+      <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\LoginProcessCmd.h">
+      <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="server\ConnectionLoadBalance.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="server\MyBaseServer.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="server\MyServer.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="server\MyServerMsgProcess.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="server\MyServerTask.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="server\MyTcpServer.h">
+      <Filter>server</Filter>
+    </ClInclude>
+    <ClInclude Include="test\LoginProcess.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\Server.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\types.h">
+      <Filter>test</Filter>
+    </ClInclude>
+    <ClInclude Include="test\XmlconfigParse.h">
+      <Filter>test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="base\MyCsvParse.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\MyHashFunction.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\MySocket.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\MySockTask.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\MySockTaskManager.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\MySockTaskPool.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\MyTask.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\MyThread.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\mysqlConnectPool\DBPool.cpp">
+      <Filter>base\mysqlConnectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="base\mysqlConnectPool\test.cpp">
+      <Filter>base\mysqlConnectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="base\redisConnectPool\redisOpt.cpp">
+      <Filter>base\redisConnectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="base\redisConnectPool\test.cpp">
+      <Filter>base\redisConnectPool</Filter>
+    </ClCompile>
+    <ClCompile Include="client\MyClient.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\MyClientTask.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\MyClientTaskManager.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\MySockClientTask.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\MySockClientTaskPool.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\MyTcpClient.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="client\test.cpp">
+      <Filter>client</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\async.c">
+      <Filter>lib\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\dict.c">
+      <Filter>lib\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\hiredis.c">
+      <Filter>lib\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\net.c">
+      <Filter>lib\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\read.c">
+      <Filter>lib\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\sds.c">
+      <Filter>lib\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\test.c">
+      <Filter>lib\hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\examples\example.c">
+      <Filter>lib\hiredis\examples</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\examples\example-ae.c">
+      <Filter>lib\hiredis\examples</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\examples\example-glib.c">
+      <Filter>lib\hiredis\examples</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\examples\example-ivykis.c">
+      <Filter>lib\hiredis\examples</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\examples\example-libev.c">
+      <Filter>lib\hiredis\examples</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\examples\example-libevent.c">
+      <Filter>lib\hiredis\examples</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\examples\example-libuv.c">
+      <Filter>lib\hiredis\examples</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\examples\example-macosx.c">
+      <Filter>lib\hiredis\examples</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\hiredis\examples\example-qt.cpp">
+      <Filter>lib\hiredis\examples</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\tinyxml\tinystr.cpp">
+      <Filter>lib\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\tinyxml\tinyxml.cpp">
+      <Filter>lib\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\tinyxml\tinyxmlerror.cpp">
+      <Filter>lib\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\tinyxml\tinyxmlparser.cpp">
+      <Filter>lib\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\tinyxml\xmltest.cpp">
+      <Filter>lib\tinyxml</Filter>
+    </ClCompile>
+    <ClCompile Include="server\ConnectionLoadBalance.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\MyBaseServer.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\MyServer.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\MyServerMsgProcess.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\MyServerTask.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\MyTcpServer.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="server\test.cpp">
+      <Filter>server</Filter>
+    </ClCompile>
+    <ClCompile Include="test\LoginProcess.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="test\main.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="test\Server.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+    <ClCompile Include="test\XmlconfigParse.cpp">
+      <Filter>test</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="base\mysqlConnectPool\Makefile">
+      <Filter>base\mysqlConnectPool</Filter>
+    </None>
+    <None Include="base\mysqlConnectPool\sql\import.sh">
+      <Filter>base\mysqlConnectPool\sql</Filter>
+    </None>
+    <None Include="base\mysqlConnectPool\sql\sql.sql">
+      <Filter>base\mysqlConnectPool\sql</Filter>
+    </None>
+    <None Include="base\redisConnectPool\Makefile">
+      <Filter>base\redisConnectPool</Filter>
+    </None>
+    <None Include="base\redisConnectPool\test">
+      <Filter>base\redisConnectPool</Filter>
+    </None>
+    <None Include="client\Makefile">
+      <Filter>client</Filter>
+    </None>
+    <None Include="lib\hiredis\.travis.yml">
+      <Filter>lib\hiredis</Filter>
+    </None>
+    <None Include="lib\hiredis\CHANGELOG.md">
+      <Filter>lib\hiredis</Filter>
+    </None>
+    <None Include="lib\hiredis\COPYING">
+      <Filter>lib\hiredis</Filter>
+    </None>
+    <None Include="lib\hiredis\Makefile">
+      <Filter>lib\hiredis</Filter>
+    </None>
+    <None Include="lib\hiredis\README.md">
+      <Filter>lib\hiredis</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\annotated.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classes.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlAttribute.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlAttribute-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlBase.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlBase-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlComment.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlComment-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlDeclaration.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlDeclaration-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlDocument.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlDocument-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlElement.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlElement-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlHandle.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlHandle-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlNode.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlNode-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlPrinter.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlPrinter-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlText.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlText-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlUnknown.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlUnknown-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlVisitor.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\classTiXmlVisitor-members.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\deprecated.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\doxygen.css">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\files.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x6c.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x6e.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x6f.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x63.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x64.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x65.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x66.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x67.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x69.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x70.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x71.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x72.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x73.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x74.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x75.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_0x76.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_enum.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x6c.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x6e.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x63.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x64.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x65.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x66.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x67.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x69.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x70.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x71.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x72.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x73.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x74.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x75.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_func_0x76.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_rela.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\functions_vars.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\hierarchy.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\index.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\pages.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\tabs.css">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\tinystr_8h_source.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\tinyxml_8h_source.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\docs\tutorial0.html">
+      <Filter>lib\tinyxml\docs</Filter>
+    </None>
+    <None Include="lib\tinyxml\Makefile">
+      <Filter>lib\tinyxml</Filter>
+    </None>
+    <None Include="proto\protobuf\gen_protobuf">
+      <Filter>proto\protobuf</Filter>
+    </None>
+    <None Include="proto\protobuf\test.proto">
+      <Filter>proto\protobuf</Filter>
+    </None>
+    <None Include="server\Makefile">
+      <Filter>server</Filter>
+    </None>
+    <None Include="test\Makefile">
+      <Filter>test</Filter>
+    </None>
+    <None Include="test\csv\111.csv">
+      <Filter>test\csv</Filter>
+    </None>
+    <None Include="Makefile" />
+    <None Include="README" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="lib\tinyxml\docs\classTiXmlAttribute.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\classTiXmlBase.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\classTiXmlComment.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\classTiXmlDeclaration.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\classTiXmlDocument.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\classTiXmlElement.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\classTiXmlNode.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\classTiXmlPrinter.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\classTiXmlText.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\classTiXmlUnknown.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\classTiXmlVisitor.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\doxygen.png">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\tab_b.gif">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\tab_l.gif">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\docs\tab_r.gif">
+      <Filter>lib\tinyxml\docs</Filter>
+    </Image>
+    <Image Include="lib\tinyxml\utf8test.gif">
+      <Filter>lib\tinyxml</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="lib\tinyxml\changes.txt">
+      <Filter>lib\tinyxml</Filter>
+    </Text>
+    <Text Include="lib\tinyxml\readme.txt">
+      <Filter>lib\tinyxml</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\tinyxml\libtinyxml.a">
+      <Filter>lib\tinyxml</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="lib\tinyxml\utf8test.xml">
+      <Filter>lib\tinyxml</Filter>
+    </Xml>
+    <Xml Include="lib\tinyxml\utf8testverify.xml">
+      <Filter>lib\tinyxml</Filter>
+    </Xml>
+    <Xml Include="test\configure\clientAddress.xml">
+      <Filter>test\configure</Filter>
+    </Xml>
+    <Xml Include="test\csv\csvConfig.xml">
+      <Filter>test\csv</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>
