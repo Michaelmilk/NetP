@@ -53,6 +53,7 @@ namespace MyNameSpace
 			std::queue<MySockTask*, std::deque<MySockTask*> > mTaskQueueTmp;
 	};
 
+	//handle send and recv etc. IO operation
 	class MyIoThread : public MyThread, public TaskQueue
 	{
 		public:
@@ -71,6 +72,12 @@ namespace MyNameSpace
 		void add(MySockTask *task)
 		{
 			epoll_event ev;
+			/*
+			EPOLLIN：      表示对应的文件描述符可以读；
+			EPOLLOUT：     表示对应的文件描述符可以写；
+			EPOLLPRI：     表示对应的文件描述符有紧急的数据可读；
+			EPOLLERR：     表示对应的文件描述符发生错误；
+			*/
 			ev.events = EPOLLIN|EPOLLOUT|EPOLLPRI|EPOLLERR;				//EPOLLOUT在此处设置可能有busy loop现象，但是如果不设置会导致后面频繁设置EPOLLOUT，性能未必高，加上run每次有等待时间，所以还是在此处加上
 			ev.data.ptr = task;
 			task->addEpollEvent(epfd, ev);
@@ -119,7 +126,7 @@ namespace MyNameSpace
 				if (epev[i].events&EPOLLIN || epev[i].events&EPOLLPRI)
 				{
 					MySockTask *task = static_cast<MySockTask*>(epev[i].data.ptr);
-					int len = task->rcvBuffer();
+					int len = task->rcvBuffer();//recv msg as char to store in recvbuf
 					if (len < 0)
 					{
 						taskWillDel.insert(task);
@@ -129,7 +136,7 @@ namespace MyNameSpace
 						std::cout<<"client close"<<std::endl;
 						taskWillDel.insert(task);
 					}
-					int getMsgRet = task->getMsg();
+					int getMsgRet = task->getMsg();//resolve recvbuf and get msg from recvbuf to unload msg in task's queue
 					if (getMsgRet < 0)
 					{
 						taskWillDel.insert(task);
@@ -165,6 +172,7 @@ namespace MyNameSpace
 		}
 	}
 
+	//recycle thread is used to remove processed tasks from MySockTaskManager and clear taskSet
 	class MyRecycleThread : public MyThread, public TaskQueue
 	{
 		public:

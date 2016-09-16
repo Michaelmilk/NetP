@@ -41,6 +41,8 @@ namespace MyNameSpace
 	void MyServer::initCallBack()
 	{
 	}
+
+	//new  a task and add it to MySockTaskManager and mTaskPool
 	bool MyServer::newTask(int sock)
 	{
 		std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): new task"<<std::endl;

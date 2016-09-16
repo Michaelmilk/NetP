@@ -58,32 +58,34 @@ namespace MyNameSpace
 
 	bool Server::init(unsigned short port)
 	{
-		if (!mServerTaskPool.init())
+		if (!mServerTaskPool.init())//new recycle and IO thread
 		{
 			std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): mServerTaskPool init fail"<<std::endl;
 			return false;
 		}
-		if (!MyBaseServer::init(port))
+		if (!MyBaseServer::init(port))//init socket related settings and epoll settings
 		{
 			std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): MyBaseServer init fail"<<std::endl;
 			return false;
 		}
-		if (!mClientTaskPool.init())
+		if (!mClientTaskPool.init())//new recycle and IO thread, and start them£¬ use thread to process send and recv, not detail message
 		{
 			std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): mClientTaskPool init fail"<<std::endl;
 			return false;
 			return false;
 		}
- 		if (!ServerMsgProcess::getInstance().start())
+ 		if (!ServerMsgProcess::getInstance().start())//start message process thread, MySockTaskManager and MyClientTaskManager instance call doProcessMsg to handle
 		{
 			std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): ServerMsgProcess start fail"<<std::endl;
 			return false;
 		}
+
+		//load clinet info from xml
 		XmlConfig::loadClientConfig("configure/clientAddress.xml", clientInfoList);
 		for (auto iter : clientInfoList)
 		{
 			std::cout<<"ip: "<<iter.ip<<" id: "<<iter.id<<" port: "<<iter.port<<" type: "<<iter.type<<std::endl;
-			newClient(iter.ip.c_str(), iter.port, iter.id, iter.type);
+			newClient(iter.ip.c_str(), iter.port, iter.id, iter.type);//new client through new myclienttask
 		}
 
 		if (!MyCsvParse::getInstance().init())
@@ -135,7 +137,7 @@ namespace MyNameSpace
 		{
 			++mClientUniqueId;
 			MyClientTaskManager::getInstance().addTask(task);
-			mClientTaskPool.addTask(task);
+			mClientTaskPool.addTask(task);//rycycle and io thread will handle this task in bakc-end
 			return true;
 		}
 		else

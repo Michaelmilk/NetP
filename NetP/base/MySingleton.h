@@ -17,6 +17,7 @@ namespace MyNameSpace
 			public:
 				static T & getInstance()
 				{
+					//assure MySingleton::init can be run only once
 					pthread_once(&ponce_, &MySingleton::init);
 					return *instance;
 				}

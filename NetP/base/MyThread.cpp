@@ -21,9 +21,11 @@ namespace MyNameSpace
 		p->setState(1);
 		p->notifyStartSuccess();
 		std::cerr<<__FUNCTION__<<":"<<__LINE__<<" thread "<< "start!"<<std::endl;
-		p->run();
+		p->run();//run function
 		return NULL;
 	}
+
+	//start a thread
 	bool MyThread::start()
 	{
 		if (isStart())
@@ -41,6 +43,8 @@ namespace MyNameSpace
 			std::cerr<<"pthread create error"<< std::endl;
 			return false;
 		}
+
+		//set state is located in another thread, here is to insure set state successfully
 		mLock.lock();
 		while(state != 1)
 		{

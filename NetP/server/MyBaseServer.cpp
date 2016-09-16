@@ -52,22 +52,27 @@ namespace MyNameSpace
 	bool MyBaseServer::init(int port)
 	{
 		mServerContainer.push_back(this);
-		bool ret = mTcpServer.bindPort(port);
+		bool ret = mTcpServer.bindPort(port);//init socket settings, and epoll settings
 		if (!ret)
 		{
 			std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): bind fail"<<std::endl;
 			return false;
 		}
+
+		//bind handle function when close terminal
 		struct sigaction sigact;
 		sigact.sa_handler = handlerHup;
 		sigaction(SIGHUP, &sigact, NULL);
 
+		//bind handle function when press ctrl-c
 		sigact.sa_handler = handlerCtrlC;
 		sigaction(SIGINT, &sigact, NULL);
 
 		signal(SIGPIPE,SIG_IGN);
 		return ret;
 	}
+
+	//accept new connection, and new a task use connected socket
 	int MyBaseServer::serverProcess()
 	{
 		int ret = mTcpServer.acceptCallBack();
@@ -77,6 +82,8 @@ namespace MyNameSpace
 		}
 		return ret;
 	}
+
+	//loop to accept the connection
 	void MyBaseServer::mainLoop()
 	{
 		while(!isFini())

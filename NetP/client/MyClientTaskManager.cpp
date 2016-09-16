@@ -21,6 +21,7 @@ namespace MyNameSpace
 		mTasks.erase(task->getId());
 	}
 
+	//process task's message
 	bool MyClientTaskManager::doProcessMsg()
 	{
 		MyScopeLock lock(mLock);

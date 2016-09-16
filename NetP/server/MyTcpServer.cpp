@@ -32,12 +32,15 @@ namespace MyNameSpace
 
 	bool MyTcpServer::bindPort(int port)
 	{
+		//create epoll handle
 		mEpfd = epoll_create(1);
 		if (mEpfd < 0)
 		{
 			std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): epoll create fail"<<std::endl;
 			return false;
 		}
+
+		//create socket fd
 		mSock = ::socket(AF_INET, SOCK_STREAM, 0);	
 		if (mSock < 0)
 		{
@@ -46,6 +49,9 @@ namespace MyNameSpace
 		}
 		int ret = -1;
 		int opt = 1;
+
+		//allow to reuse the binded IP and port if socket is at a TIME_WAIT status
+		//to avoid error:Address already in use
 		ret = ::setsockopt(mSock, SOL_SOCKET, SO_REUSEADDR, (const char *)&opt, sizeof(int));
 		if ( 0 != ret)
 		{
@@ -53,6 +59,7 @@ namespace MyNameSpace
 			return false;
 		}
 
+		//set keepalive to detect coolapse of opposite end.
 		ret = ::setsockopt(mSock, SOL_SOCKET, SO_KEEPALIVE, (const char *)&opt, sizeof(int));
 		if ( 0 != ret)
 		{
@@ -60,6 +67,7 @@ namespace MyNameSpace
 			return false;
 		}
 
+		//set the interval of inactivity of TCP from last transmission
 		int idle = 30;
 		ret = ::setsockopt(mSock, SOL_TCP, TCP_KEEPIDLE, (const char *)&idle, sizeof(int));
 		if ( 0 != ret)
@@ -68,6 +76,7 @@ namespace MyNameSpace
 			return false;
 		}
 
+		//time between two keepalive 
 		int interval = 10;
 		ret = ::setsockopt(mSock, SOL_TCP, TCP_KEEPINTVL, (const char *)&interval, sizeof(int));
 		if ( 0 != ret)
@@ -76,6 +85,7 @@ namespace MyNameSpace
 			return false;
 		}
 
+		//set the maximum number of keepalive probes to be sent.
 		int keepCount = 3;
 		ret = ::setsockopt(mSock, SOL_TCP, TCP_KEEPCNT, (const char *)&keepCount, sizeof(int));
 		if ( 0 != ret)
@@ -84,6 +94,7 @@ namespace MyNameSpace
 			return false;
 		}
 
+		//set send buffer
 		int len = 64 * 1024;
 		ret = ::setsockopt(mSock, SOL_SOCKET, SO_SNDBUF, (const char *)&len, sizeof(int));
 		if ( 0 != ret)
@@ -91,12 +102,16 @@ namespace MyNameSpace
 			std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): set send buf fail"<<std::endl;
 			return false;
 		}
+
+		//set recv buffer
 		ret = ::setsockopt(mSock, SOL_SOCKET, SO_RCVBUF, (const char *)&len, sizeof(int));
 		if ( 0 != ret)
 		{
 			std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): set rcv buf fail"<<std::endl;
 			return false;
 		}
+
+		//bind ip and port
 		sockaddr_in addr;
 		bzero(&addr, sizeof(addr));
 		addr.sin_family = AF_INET;
@@ -108,12 +123,16 @@ namespace MyNameSpace
 			std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): bind(" <<port<<") fail:"<<errno<<std::endl;
 			return false;
 		}
+
+		//listen connection from clients, mListenCount: the connections can be handle at the same time.
 		ret = ::listen(mSock, mListenCount);
 		if (0 != ret)
 		{
 			std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): listen fail"<<std::endl;
 			return false;
 		}
+
+		//add the event need to detect, EPOLLIN:if the associated mSock is available for read
 		struct epoll_event ev;
 		ev.events = EPOLLIN;
 		ret = epoll_ctl(mEpfd, EPOLL_CTL_ADD, mSock, &ev);
@@ -125,6 +144,8 @@ namespace MyNameSpace
 		return true;
 	}
 
+
+	//accept new connection, return connected socket
 	int MyTcpServer::acceptCallBack()
 	{
 		struct epoll_event ev;

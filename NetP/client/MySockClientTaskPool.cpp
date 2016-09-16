@@ -83,6 +83,8 @@ namespace MyNameSpace
 		{
 			return taskSet.size();
 		}
+
+		//create epoll fd and init epoll event queue
 		bool init()
 		{
 			if (!MyThread::init())
@@ -105,6 +107,7 @@ namespace MyNameSpace
 		std::set<MySockClientTask *> taskSet;
 	};
 
+	//epollwait events, diapatcher msg to handle
 	void MyClientIoThread::run()
 	{
 		std::set<MySockClientTask *> taskWillDel;
@@ -177,10 +180,12 @@ namespace MyNameSpace
 		std::set<MySockClientTask *> taskSet;
 	};
 
+	//handle connection and specify a iothread to deal with transmission of this connection
 	void MyClientRecycleThread::run()
 	{
 		while(!isFini())
 		{
+			//move task from clientqueue to recycleThread's taskset
 			checkQueue();
 			if (!taskSet.empty())
 			{
@@ -188,9 +193,9 @@ namespace MyNameSpace
 				std::set<MySockClientTask *>::iterator iter = taskSet.begin();
 				for (; iter != taskSet.end(); ++iter)
 				{
-					if ((*iter)->conn())
+					if ((*iter)->conn())//connect to server
 					{
-						mPool->addIoThread(*iter);
+						mPool->addIoThread(*iter);//allocate this task to a iothread
 						willdel.insert(*iter);
 					}
 //					MySockClientTaskManager::getInstance().removeTask(*iter);
@@ -206,6 +211,7 @@ namespace MyNameSpace
 		}
 	}
 
+	//add client task to task set, recyle amnd io thread will handle the tasks
 	bool MySockClientTaskPool::addTask(MySockClientTask * task)
 	{
 		mRecycleThread->addTask(task);
@@ -217,6 +223,7 @@ namespace MyNameSpace
 		mIoThread->addTask(task);
 	}
 
+	//create recycle and io thread and start them to handle the client task
 	bool MySockClientTaskPool::init()
 	{
 		mRecycleThread = new MyClientRecycleThread(this);
@@ -224,8 +231,8 @@ namespace MyNameSpace
 		{
 			return false;
 		}
-		mRecycleThread->init();
-		mRecycleThread->start();
+		mRecycleThread->init();//init lock
+		mRecycleThread->start();//start a thread, thread func is MyClientRecycleThread::run()
 		mIoThread = new MyClientIoThread(this);
 		if (NULL == mIoThread)
 		{
@@ -235,8 +242,8 @@ namespace MyNameSpace
 			mRecycleThread = NULL;
 			return false;
 		}
-		mIoThread->init();
-		mIoThread->start();
+		mIoThread->init();//create epoll
+		mIoThread->start();//start a thread, thread func is MyClientIoThread::run()
 		return true;
 	}
 

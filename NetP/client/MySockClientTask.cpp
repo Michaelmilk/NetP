@@ -48,6 +48,7 @@ namespace MyNameSpace
 		return mSock.sendDataWithBuffer(buf, len);
 	}
 
+	//create socket, set socket property and connect to service
 	int MySockClientTask::conn()
 	{
 		mSockfd = ::socket(AF_INET, SOCK_STREAM, 0);

@@ -26,7 +26,7 @@ int main()
 		std::cerr<<__FUNCTION__<<"("<<__LINE__<<"): server init fail"<<std::endl;
 		exit(1);
 	}
-	s.mainLoop();//accept new client connect and new Task for the connect
+	s.mainLoop();//accept new client connect and new a Task for the connect to handle transmission
 	s.fini();
 	return 0;
 
